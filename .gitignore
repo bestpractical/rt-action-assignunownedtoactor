@@ -12,3 +12,4 @@ README
 *.swp
 /META.yml
 /MANIFEST
+/MYMETA.*

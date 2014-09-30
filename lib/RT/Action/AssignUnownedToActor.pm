@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package RT::Action::AssignUnownedToActor;
 
-our $VERSION = '0.01';
+our $VERSION = '1.00';
 
 use base qw(RT::Action);
 
@@ -67,25 +67,35 @@ scrip, if all the conditions below are met:
 Note that this means the requestor will never be assigned as the owner
 by this action.
 
-=head1 INSTALLATION 
+=head1 INSTALLATION
 
 =over
 
-=item perl Makefile.PL
+=item C<perl Makefile.PL>
 
-=item make
+=item C<make>
 
-=item make install
+=item C<make install>
 
 May need root permissions
 
-=item make initdb
+=item C<make initdb>
 
-Only run this once or you'll end up with duplicate scrip actions.
+Only run this the first time you install this module.
 
-=item Edit your /opt/rt4/etc/RT_SiteConfig.pm
+If you run this twice, you may end up with duplicate data
+in your database.
 
-Add this line:
+If you are upgrading this module, check for upgrading instructions
+in case changes need to be made to your database.
+
+=item Edit your F</opt/rt4/etc/RT_SiteConfig.pm>
+
+If you are using RT 4.2 or greater, add this line:
+
+    Plugin('RT::Action::AssignUnownedToActor');
+
+For RT 4.0, add this line:
 
     Set(@Plugins, qw(RT::Action::AssignUnownedToActor));
 
@@ -97,21 +107,29 @@ or add C<RT::Action::AssignUnownedToActor> to your existing C<@Plugins> line.
 
 =item Restart your webserver
 
-=item Create an appropriate Scrip using this new action
-
 =back
 
 =head1 AUTHOR
 
-Thomas Sibley <trs@bestpractical.com>
+Best Practical Solutions, LLC E<lt>modules@bestpractical.comE<gt>
 
-=head1 LICENCE AND COPYRIGHT
+=head1 BUGS
 
-This software is copyright (c) 2011 by Best Practical Solutions.
+All bugs should be reported via email to
 
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+    L<bug-RT-Action-AssignUnownedToActor@rt.cpan.org|mailto:bug-RT-Action-AssignUnownedToActor@rt.cpan.org>
 
+or via the web at
+
+    L<rt.cpan.org|http://rt.cpan.org/Public/Dist/Display.html?Name=RT-Action-AssignUnownedToActor>.
+
+=head1 LICENSE AND COPYRIGHT
+
+This software is Copyright (c) 2011-2014 by Best Pracical Solutions, LLC.
+
+This is free software, licensed under:
+
+  The GNU General Public License, Version 2, June 1991
 
 =cut
 
