@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package RT::Action::AssignUnownedToActor;
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 use base qw(RT::Action);
 
@@ -100,10 +100,6 @@ For RT 4.0, add this line:
     Set(@Plugins, qw(RT::Action::AssignUnownedToActor));
 
 or add C<RT::Action::AssignUnownedToActor> to your existing C<@Plugins> line.
-
-=item Clear your mason cache
-
-    rm -rf /opt/rt4/var/mason_data/obj
 
 =item Restart your webserver
 
