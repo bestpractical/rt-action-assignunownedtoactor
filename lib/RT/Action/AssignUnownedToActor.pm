@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package RT::Action::AssignUnownedToActor;
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 use base qw(RT::Action);
 
